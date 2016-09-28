@@ -75,8 +75,7 @@ if __name__ == '__main__':
                         default='/usr/share/dict/cracklib-small',
                         type=argparse.FileType('r'),
                         help='File which contains the word list.  Default: %(default)s',
-                        metavar='PATH_TO_WORD_LIST'
-                        )
+                        metavar='PATH_TO_WORD_LIST')
     strength = parser.add_mutually_exclusive_group()
     strength.add_argument('-w',
                           dest='number_of_words',
