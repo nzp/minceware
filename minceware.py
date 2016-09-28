@@ -10,8 +10,7 @@ with open(words_file) as f:
 passphrase = []
 
 while True:
-    b = os.urandom(2)
-    n = int.from_bytes(b, sys.byteorder)
+    n = int.from_bytes(os.urandom(2), sys.byteorder)
 
     try:
         passphrase.append(word_list[n].rstrip('\n'))
