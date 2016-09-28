@@ -7,7 +7,6 @@ words_file = '/usr/share/dict/cracklib-small'
 with open(words_file) as f:
     word_list = f.readlines()
 
-list_length = len(word_list)
 passphrase = []
 
 while True:
