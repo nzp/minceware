@@ -109,7 +109,7 @@ if __name__ == '__main__':
                 h=h))
             sys.exit()
         # Test for '-e' flag explicitly because args.bits is always set (has
-        # a default value.
+        # a default value).
         elif '-e' in sys.argv:
             print('{w} words ({h:.2f} bit/word)'.format(
                 w=get_length_from_entropy(args.bits, l),
