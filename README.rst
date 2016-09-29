@@ -27,6 +27,20 @@ crypto snake oil salesmen — the kid is a genius).
 
 Usage
 ------
+
+If you want to install it system wide, run
+
+``make install``
+
+which will install the script and this README in ``/usr/local`` prefixed
+standard locations.  Run
+
+``make uninstall``
+
+to remove everything.
+
+Usage:
+
 ``minceware.py [-h] [-f PATH_TO_WORD_LIST] [-w NUMBER_OF_WORDS | -e BITS]``
 
 Optional arguments:
