@@ -70,6 +70,10 @@ if __name__ == '__main__':
     parser = argparse.ArgumentParser(
         description='Securely generate Diceware style passphrases on a computer.'
     )
+    parser.add_argument('-i',
+                        dest='info',
+                        action='store_true',
+                        help='Info/calculator mode.')
     parser.add_argument('-f',
                         dest='words_file',
                         default='/usr/share/dict/cracklib-small',
@@ -93,6 +97,28 @@ if __name__ == '__main__':
 
     word_list = args.words_file.readlines()
     args.words_file.close()
+
+
+    if args.info:
+        l = len(word_list)  # We need this >=1 times so calculate only once.
+        h = math.log(l, 2)
+
+        if args.number_of_words:
+            print('{H:.2f} bits ({h:.2f} bit/word)'.format(
+                H=args.number_of_words*h,
+                h=h))
+            sys.exit()
+        # Test for '-e' flag explicitly because args.bits is always set (has
+        # a default value.
+        elif '-e' in sys.argv:
+            print('{w} words ({h:.2f} bit/word)'.format(
+                w=get_length_from_entropy(args.bits, l),
+                h=h))
+            sys.exit()
+        else:
+            print('{l} words, {h:.2f} bit/word'.format(l=l, h=h))
+            sys.exit()
+
 
     if args.number_of_words:
         length = args.number_of_words

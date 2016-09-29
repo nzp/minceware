@@ -31,6 +31,7 @@ Usage
 
 Optional arguments:
   -h, --help            show this help message and exit
+  -i                    Info/calculator mode.
   -f PATH_TO_WORD_LIST  File which contains the word list. Default:
                         /usr/share/dict/cracklib-small
   -w NUMBER_OF_WORDS    Number of words in the passphrase. Mutually exclusive
@@ -45,6 +46,12 @@ is 128 bits, but since Minceware rounds the number of required words up, and
 each cracklib word is worth 15.7 bits, we get the high number.  With 8 words
 you would get ~125 bits, so you're probably more than safe if you just omit one
 word from the default output.
+
+The ``-i`` flag puts the program in “calculator” mode where you can see how
+many bits (if combined with ``-w``) a passphrase has, how long a
+passphrase of certain strength would be (if combined with ``-e``), or how many
+words the given word list contains (when used alone).  All variants show bits
+per word in parentheses.
 
 The ``-f`` flag is a path to the word list file which needs to be simply a
 Unix words formatted (newline delimited list of words) file.  Value of ``-``
